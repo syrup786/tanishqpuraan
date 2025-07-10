@@ -4,27 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tanishq Puraan</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Barlow+Condensed' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet'>
 
 <style>
+
 :root {
     interpolate-size: allow-keywords;
-    --bg: #dddee0;
-    --header-bg: hsl(240, 11%, 96%);
-    --bg-details: hsl(240, 11%, 96%);
-    --bg-box: rgba(255, 255, 255, 0.9);
-    --header-font-color: #424242;
-    --font-color: #424242;
-
-    --h1-font-size: 1.7rem;
-    --h2-font-size: 1.2rem;
-    --h3-font-size: 1.1rem;
-    --body-font-size: 1rem;
-    --footer-font-size: 0.7rem;
-    --button-font-size: 0.9rem;
 }
 
 * {
@@ -32,99 +19,45 @@
     padding: 0;
 }
 
-h2 {
-    font-size: var(--h2-font-size);
-}
-
-h3 {
-    font-size: var(--h3-font-size);
-}
-
-p {
-    margin-top: 0.5rem;
-}
-
-ul {
-    padding: 0 0 0 0.75rem;
-}
-
-li {
-    padding-left: 0.5rem;
-}
-
-li::marker {
-    content: "\2726"; /* 272D, 272B */ 
-}
-
-table {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-collapse: collapse;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    font-size: clamp(0.7rem, 1vw, 1rem);
-}
-
-th, td {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 0.5rem;
-    text-align: center;
-}
-
-th {
-    text-transform: uppercase;
-}
-
 body {
-    background-color: var(--bg);
+    /* background-color: #eef2f3; */
+    background: rgba(0, 128, 0, 0.1);
     font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--font-color);
-    font-size: var(--body-font-size);
-    min-height: 100dvh;
+    color: rgba(0, 0, 0, 0.80);
 }
 
 nav {
-    background-color: var(--header-bg);
-    font-family: Barlow Condensed;
-    font-size: var(--h1-font-size);
-    color: var(--header-font-color);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    text-align: right;
-    padding: 0 1rem 0.5rem 0;
-    position: sticky;
-    top: 0;
     margin-bottom: 1rem;
-    z-index: 9999;
-    
-    color: var(--header-font-color);
-    background-image: linear-gradient(45deg, green, orange, green);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    padding: 0.5rem 0;
+    font-family: Barlow Condensed, system-ui, -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #fff;
+    font-size: 1.75rem;
+    font-weight: 900;
+    text-align: right;   
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+
+    background-color: green;
+}
+
+.nav-content {
+    margin: auto;
+    max-width: 1200px;
 }
 
 .middle {
     max-width: 1200px;
     margin: auto;
     padding: 0 1rem;
-    
     display: grid;
     gap: 1rem;
 }
 
-.footer {
-    right: 0;
-    padding: 0 0 1rem 0;
-    text-align: right;
-    font-size: var(--footer-font-size);
-    font-weight: 600;
-}
-
 details {
-    background-color: var(--bg-details);
-    border-radius: 0.3rem;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    box-sizing: border-box;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* don't add margin/padding to this, add it to the actual stuff inside the details content */
@@ -142,21 +75,10 @@ details > summary {
     cursor: pointer;
     position: relative;
     padding: 0.75rem 1rem;
-    font-size: var(--h2-font-size);
-    text-transform: uppercase;
+    text-transform: uppercase;    
+    color: green;
+    font-size: 1.1rem;
     font-weight: 800;
-    color: #a6f7cf;
-    background-image: linear-gradient(45deg, green, orange, green);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    display:flex;
-    align-items: flex-start;
-
-    list-style-type: none;
-    -webkit-appearance: none;
-    appearance: none;
 }
 
 details > summary::marker {
@@ -183,11 +105,6 @@ details > summary::after {
     transition: transform 1s ease-in-out;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #a6f7cf;
-    background-image: linear-gradient(45deg, green, orange, green);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 details[open] summary::after {
@@ -204,13 +121,59 @@ details[open] summary::after {
     }
 
     .box {
-        background-color: var(--bg-box);
         padding: 1rem;
         border-radius: 0.3rem;
         overflow: hidden;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.15);
     }
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    color: green;
+    margin-bottom: 0.2rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    margin-top: 0.5rem;
+}
+
+ul {
+    padding: 0 0 0 0.75rem;
+}
+
+li {
+    padding-left: 0.5rem;
+}
+
+li::marker {
+    content: "\2726"; /* 272D, 272B */ 
+    font-size: 0.9rem;
+}
+
+table {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(0.7rem, 1vw, 1rem);
+}
+
+th, td {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+th {
+    text-transform: uppercase;
 }
 
 .box.row2 {
@@ -228,139 +191,105 @@ details[open] summary::after {
 .box.row5 {
     grid-row: span 5;
 }
-
-.box.col2 {
-    grid-column: span 2;
-}
-
-.realm {
-    display: none;
-}
-
-.error {
-    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: var(--h1-font-size);
-    color: red;
-}
-
-.logpage {
-    margin: 0;
-    padding: 0;    
-    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: var(--h2-font-size);
-    color: var(--header-font-color);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#login-form {
-    margin: 1rem;
-    padding: 2rem;
-    max-width: 20rem;
-    background-color: var(--header-bg);
-    text-align: center;
-    border-radius: 0.3rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-input[type="text"], input[type="password"] {
-    margin-top: 1rem;
-    padding: 0 0.5rem;
-    height: 1.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.3rem;
-    box-sizing: border-box;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input[type="text"]:focus, input[type="password"]:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-    outline: none; 
-}
-
-input[type="submit"] {
-    width: 5rem;
-    padding: 0.3rem;
-    background-color: var(--font-color);
-    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: var(--button-font-size);
-    font-weight: 400;
-    color: #fff;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-input[type="submit"]:hover {
-    background-color: #651619;
-}
-
-button {
-    width: 5rem;
-    padding: 0.3rem;
-    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: var(--button-font-size);
-    font-weight: 400;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
     
-    color: #a6f7cf;
-    background-image: linear-gradient(45deg, green, orange, green);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+footer {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgba(0, 128, 0, 0.7);
+    color: #fff;
+    font-size: 0.9rem;
+    text-align: center;
 }
 
-button:hover {
-    background-color: #651619;
+#login-wrapper {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 128, 0, 0.1);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    font-family: Barlow Condensed, system-ui, -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+.login-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+    width: 90%;
+    max-width: 320px;
+}
+
+.login-form h1 {
+    color: green;
+    margin-bottom: 1rem;
+}
+
+.login-form input {
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: green;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#login-error {
+    color: red;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
 </style>
 
 </head>
 <body>
 
 
-<div class="logpage">
-    <div id="login-form">
-        <h1>Please log in</h1>
-        <form id="login" onsubmit="return validateLogin()">
-            <label for="username">Username:</label>
-            <input type="text" id="username" required><br><br>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" required><br><br>
-
-            <input type="submit" value="Log In">
-        </form>
-        <p class="error" id="error-message"></p>
+<div id="login-wrapper">
+    <div class="login-form">
+        <h1>Tanishq Puraan</h1>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">LOGIN</button>
+        <p id="login-error"></p>
     </div>
 </div>
 
+<div id="page-content" style="display: none;">
+    
 
+    <nav>
+        <div class="nav-content">
+            <h1>Tanishq Puraan</h1>
+            <h6>Knowledge, Legacy & Gold - Woven Together</h6>
+            <!-- <button onclick="logout()">Log Out</button> -->
+        </div>
+    </nav>
 
-<main id="realm" class="realm">
-<nav>
-    <h1>Tanishq Puraan</h1>
-    <h6>Knowledge, Legacy & Gold - Woven Together</h6>
-    <!-- <button onclick="logout()">Log Out</button> -->
-</nav>
 <section class="middle">
 
     <details name="mygroup">
         <summary>The Brand Story</summary>
         <div class="content">
-    
+        
             <div class="box">
                 <h3>Years of Inception</h3>
                 <ul>
@@ -370,12 +299,12 @@ button:hover {
                     <li><b>1996</b> - First Tanishq <b>Store</b> was opened in Chennai.</li>
                 </ul>
             </div>
-    
+        
             <div class="box">
                 <h3>Vision - Jewellery Division</h3>
                 <p>To be the most desirable Jewellery Brand for Indian women.</p>
             </div>
-    
+        
             <div class="box">
                 <h3>Values - Jewellery Division</h3>
                 <ul>
@@ -391,13 +320,13 @@ button:hover {
                 <h3>The word 'Tanishq'</h3>
                 <p>The term Tanishq was coined by <b>Mr. Xerxes Desai</b> by marrying the words <b>'Tan'</b> meaning body and <b>'Nishk'</b> meaning a gold ornament.</p>
             </div>
-    
+        
             <div class="box">
                 <h3>Tanishq Stores</h3>
                 <p>490+ stores in India.</p>
-				<p>16 International stores</p>
+                <p>16 International stores</p>
             </div>
-    
+        
         </div>
     </details>
 
@@ -886,6 +815,16 @@ button:hover {
             </div>
     
             <div class="box">
+                <h3>Colours in Diamonds</h3>
+                <ul>
+                    <li>Vast majority of polished diamonds (approximately 95%) are colourless to light yellow, greenish-yellow, and yellow.</li>
+                    <li>Blue, pink, red, green...natural dismonads exist as well, but are extreley rare. They are called "Fancy colours".</li>
+                    <li>When the trace of Nitrogen increases in a diamond, it gains a yellow tint which makes the diamond less valuable.</li>
+                    <li>Boron, red and pink diamonds get their colour due to structural irregularities.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
                 <h3>Clarity</h3>
                 <ul>
                     <li>Refers to a diamond's level of purity</li>
@@ -897,7 +836,18 @@ button:hover {
                 </ul>
             </div>
     
-            <div class="box col2">
+            <div class="box">
+                <h3>5 Factors for Clarity Grading</h3>
+                <ul>
+                    <li><b>Color and Contrast (Relief)</b> of the inclusion as against the stone</li>
+                    <li><b>Size</b> of the inclusion</li>
+                    <li><b>Nature</b> or type of inclusion</li>
+                    <li><b>Location</b> of inclusion</li>
+                    <li><b>Number</b> of inclusions (includes reflection of inclusions also)</li>
+                </ul>
+            </div>
+    
+            <div class="box row3">
                 <h3>Clarity Scales</h3>
                 <table style="width: 100%;">
                     <tr>
@@ -935,27 +885,6 @@ button:hover {
                         <td>Obvious inclusions visible at 10x magnification</td>
                     </tr>
                 </table>
-            </div>
-    
-            <div class="box">
-                <h3>5 Factors for Clarity Grading</h3>
-                <ul>
-                    <li><b>Color and Contrast (Relief)</b> of the inclusion as against the stone</li>
-                    <li><b>Size</b> of the inclusion</li>
-                    <li><b>Nature</b> or type of inclusion</li>
-                    <li><b>Location</b> of inclusion</li>
-                    <li><b>Number</b> of inclusions (includes reflection of inclusions also)</li>
-                </ul>
-            </div>
-    
-            <div class="box">
-                <h3>Colours in Diamonds</h3>
-                <ul>
-                    <li>Vast majority of polished diamonds (approximately 95%) are colourless to light yellow, greenish-yellow, and yellow.</li>
-                    <li>Blue, pink, red, green...natural dismonads exist as well, but are extreley rare. They are called "Fancy colours".</li>
-                    <li>When the trace of Nitrogen increases in a diamond, it gains a yellow tint which makes the diamond less valuable.</li>
-                    <li>Boron, red and pink diamonds get their colour due to structural irregularities.</li>
-                </ul>
             </div>
     
             <div class="box">
@@ -1545,7 +1474,7 @@ button:hover {
             <div class="box">
                 <h3>Bouquet</h3>
                 <ul>
-                    <li>It is a ____ of one big diamond in the center surrounded by several (9-11) smaller diamonds on the side placed at an angle to create the look of a diamond table.</li>
+                    <li>It is a cluster of one big diamond in the center surrounded by several (9-11) smaller diamonds on the side placed at an angle to create the look of a diamond table.</li>
                 </ul>
             </div>
     
@@ -3132,43 +3061,28 @@ button:hover {
     </details>
 
 
-<div class="footer">Curated by: Swaroop Chakraborty<br/>Tanishq Malviya Nagar - TBH Bhopal</div>
 </section>
-</main>
 
+<footer>
+    &copy; 2025 Curated by: Swaroop Chakraborty, TBH - Tanishq Malviya Nagar, Bhopal
+</footer>
+
+
+</div> <!-- end of page-content -->
 
 <script>
-    // Hardcoded credentials for demonstration
-    const validUsername = "TBH";
-    const validPassword = "@Pass#123";
+function login() {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+    const errorMsg = document.getElementById('login-error');
 
-    // Validate login function
-    function validateLogin() {
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-        const errorMessage = document.getElementById("error-message");
-
-        // Check credentials
-        if (username === validUsername && password === validPassword) {
-            // Show protected content and hide login form
-            document.getElementById("login-form").style.display = "none";
-            document.getElementById("realm").style.display = "block";
-            errorMessage.textContent = ''; // Clear error message
-            return false; // Prevent form submission
-        } else {
-            errorMessage.textContent = "Invalid username or password.";
-            return false; // Prevent form submission
-        }
+    if (username === 'TBH' && password === '@Pass#123') {
+        document.getElementById('login-wrapper').style.display = 'none';
+        document.getElementById('page-content').style.display = 'block';
+    } else {
+        errorMsg.textContent = 'Invalid credentials. Please try again.';
     }
-
-    // Logout function to log out and show the login form
-    function logout() {
-        document.getElementById("login-form").style.display = "block";
-        document.getElementById("realm").style.display = "none";
-    }
+}
 </script>
-
-
-
 </body>
 </html>
