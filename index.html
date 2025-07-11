@@ -4,15 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tanishq Puraan</title>
-    <link href='https://fonts.googleapis.com/css?family=Barlow+Condensed' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Roboto|Roboto+Condensed" rel="stylesheet" />
 
 <style>
-
-:root {
-    interpolate-size: allow-keywords;
-}
 
 * {
     margin: 0;
@@ -23,12 +17,12 @@ body {
     /* background-color: #eef2f3; */
     background: rgba(0, 128, 0, 0.1);
     font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: rgba(0, 0, 0, 0.80);
+    color: #1b3b2f;
 }
 
 nav {
     margin-bottom: 1rem;
-    padding: 0.5rem 0;
+    padding-bottom: 1rem;
     font-family: Barlow Condensed, system-ui, -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #fff;
     font-size: 1.75rem;
@@ -41,6 +35,7 @@ nav {
 
 .nav-content {
     margin: auto;
+    padding-right: 0.5rem;
     max-width: 1200px;
 }
 
@@ -61,15 +56,37 @@ details {
 }
 
 /* don't add margin/padding to this, add it to the actual stuff inside the details content */
-details::details-content {
+/* Apply interpolate-size if supported */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+/* Apply transition-behavior if supported */
+@supports (transition-behavior: allow-discrete) {
+  details::details-content {
     block-size: 0;
     transition: block-size 1s, content-visibility 1s;
     transition-behavior: allow-discrete;
+  }
+
+  details[open]::details-content {
+    block-size: auto;
+  }
 }
 
-details:open::details-content {
-    block-size: auto;
+/* Fallback for browsers that do not support the above */
+@supports not (transition-behavior: allow-discrete) {
+  details[open] .content {
+    display: block;
+  }
+
+  details:not([open]) .content {
+    display: none;
+  }
 }
+
 
 details > summary {
     cursor: pointer;
@@ -124,7 +141,7 @@ details[open] summary::after {
         padding: 1rem;
         border-radius: 0.3rem;
         overflow: hidden;
-        border: 1px solid rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(0, 0, 0, 0.1);
     }
 }
 
@@ -272,6 +289,7 @@ footer {
         <p id="login-error"></p>
     </div>
 </div>
+
 
 <div id="page-content" style="display: none;">
     
@@ -1025,6 +1043,26 @@ footer {
                     <li>100% exchange on prevailing rates</li>
                     <li>Tanishq Diamond exchange at any Tanishq store</li>
                     <li>Finite in supply, diamonds offer value for a lifetime</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Natural Diamond Council</h3>
+                <p>The De Beers Group is closely associated with the Natural Diamond Council (NDC). The Natural Diamond Council was formerly known as the Diamond Producers Association (DPA). It is a global organization representing seven of the world's leading diamond mining companies, including:</p>
+                <ul>
+                    <li>De Beers Group</li>
+                    <li>ALROSA</li>
+                    <li>Lucara Diamond</li>
+                    <li>Petra Diamonds</li>
+                    <li>Rio Tinto</li>
+                    <li>RZM Murowa</li>
+                    <li>Arctic Canadian Diamond Company</li>
+                </ul>
+                <p><b>Purpose of the Natural Diamond Council</b></p>
+                <ul>
+                    <li>Promote the ethical and sustainable sourcing of natural diamonds.</li>
+                    <li>Educate consumers about the value and legacy of natural diamonds.</li>
+                    <li>Counter the marketing of lab-grown diamonds with factual, brand-neutral information.</li>
                 </ul>
             </div>
     
@@ -3084,5 +3122,9 @@ function login() {
     }
 }
 </script>
+
+
 </body>
 </html>
+
+
