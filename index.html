@@ -4,98 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tanishq Puraan</title>
-    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Roboto|Roboto+Condensed" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Barlow|Barlow+Condensed|Roboto|Inter" rel="stylesheet" />
 
 <style>
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body {
-    /* background-color: #eef2f3; */
-    background: rgba(0, 128, 0, 0.1);
-    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #1b3b2f;
+.circle1,.circle2,.circle3,.circle4,.circle5,.circle6,.circle7 {
+    background: white;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    position: absolute;
+    z-index: -2;
+    border-radius: 50%;
+}
+
+.circle1 {
+    top: 2%;
+    right: 2%;
+    height: 5rem;
+    width: 5rem;
+}
+
+.circle2 {
+    top: 14%;
+    right: 4%;
+    height: 4rem;
+    width: 4rem;
+}
+
+.circle3 {
+    top: 24%;
+    right: 3%;
+    height: 3rem;
+    width: 3rem;
+}
+
+.circle4 {
+    top: 32%;
+    right: 3%;
+    height: 2rem;
+    width: 2rem;
+}
+
+.circle5 {
+    top: 38%;
+    right: 4%;
+    height: 1rem;
+    width: 1rem;
+}
+
+.circle6 {
+    top: 42%;
+    right: 4.5%;
+    height: 0.7rem;
+    width: 0.7rem;
+}
+
+.circle7 {
+    top: 45%;
+    right: 4.5%;
+    height: 0.3rem;
+    width: 0.3rem;
+}
+
+body {    
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+    min-height: 100dvh;    
+    font-family: Inter, Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(30, 43, 43, 0.9);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 nav {
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    font-family: Barlow Condensed, system-ui, -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #fff;
-    font-size: 1.75rem;
+    margin-right: 0.5rem;
+    padding: 1rem 0;
+    font-family: Barlow Condensed;
+    text-align: right;
+    color: teal;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.9);
+}
+
+nav h1 {
     font-weight: 900;
-    text-align: right;   
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
-
-    background-color: green;
+    font-size: 2.5rem;
 }
 
-.nav-content {
-    margin: auto;
-    padding-right: 0.5rem;
-    max-width: 1200px;
+nav h6 {
+    font-size: 1rem;
 }
 
-.middle {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 1rem;
+h3 {
+    color: teal;
+    font-family: Barlow;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.glass {    
+    background: white;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    border-radius: 0.5rem;
+    z-index: 3;
+    backdrop-filter: blur(2rem);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 2rem 0.5rem;
 }
 
 details {
-    background-color: rgba(255, 255, 255, 1);
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    /* background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); */
+    backdrop-filter: blur(1.5rem); /* smaller blur than parent for layering effect */
+    border-radius: 0.5rem; /* same as .glass */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* soft depth */
+    padding: 0.2rem;
 }
 
-/* don't add margin/padding to this, add it to the actual stuff inside the details content */
-/* Apply interpolate-size if supported */
-@supports (interpolate-size: allow-keywords) {
-  :root {
-    interpolate-size: allow-keywords;
-  }
-}
-
-/* Apply transition-behavior if supported */
-@supports (transition-behavior: allow-discrete) {
-  details::details-content {
-    block-size: 0;
-    transition: block-size 1s, content-visibility 1s;
-    transition-behavior: allow-discrete;
-  }
-
-  details[open]::details-content {
-    block-size: auto;
-  }
-}
-
-/* Fallback for browsers that do not support the above */
-@supports not (transition-behavior: allow-discrete) {
-  details[open] .content {
-    display: block;
-  }
-
-  details:not([open]) .content {
-    display: none;
-  }
-}
-
-
-details > summary {
+details summary {
     cursor: pointer;
     position: relative;
     padding: 0.75rem 1rem;
-    text-transform: uppercase;    
-    color: green;
+    text-transform: uppercase;
+    font-family: Barlow;
     font-size: 1.1rem;
-    font-weight: 800;
+    color: #007F7F;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(1rem);
+    border-radius: 1rem 1rem 0 0;
 }
 
 details > summary::marker {
@@ -108,54 +159,30 @@ details::-webkit-details-marker {
     display: none;
 }
 
-details > summary::before {
-    content: "";
-    display: inline-block;
-    width: 0;
-    height: 0;
-}
-
-details > summary::after {
-    content: "\271B";
-    position: absolute;
-    right: 1rem;
-    transition: transform 1s ease-in-out;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-details[open] summary::after {
-    transform: rotate(495deg);
-}
-
-@media (min-width: 20rem) {
+@media (min-width: 18rem) {
     .content {
-        padding: 0 1rem 1rem 1rem;	
+        padding: 0 1rem 1rem 1rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
         gap: 1rem;
         box-sizing: border-box;
+        background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        backdrop-filter: blur(1.5rem);
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .box {
-        padding: 1rem;
-        border-radius: 0.3rem;
-        overflow: hidden;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-}
-
-h1 {
-    font-size: 2.5rem;
-}
-
-h3 {
-    color: green;
-    margin-bottom: 0.2rem;
-}
-
-h6 {
-    font-size: 1rem;
+        padding: 1.25rem;
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 0.75rem;
+        backdrop-filter: blur(1rem);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: justify;
+    }    
 }
 
 p {
@@ -176,7 +203,7 @@ li::marker {
 }
 
 table {
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-collapse: collapse;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
@@ -184,7 +211,7 @@ table {
 }
 
 th, td {
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0.5rem;
     text-align: center;
 }
@@ -210,68 +237,78 @@ th {
 }
     
 footer {
-    margin-top: 1rem;
     padding: 1rem;
-    background-color: rgba(0, 128, 0, 0.7);
-    color: #fff;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: center;
+    color: teal;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
 }
 
 #login-wrapper {
     position: fixed;
     inset: 0;
-    background: rgba(0, 128, 0, 0.1);
-    backdrop-filter: blur(4px);
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+    backdrop-filter: blur(2rem);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    font-family: Barlow Condensed, system-ui, -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Inter, Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 
 .login-form {
-    background: white;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background: white;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    border-radius: 0.5rem;
+    z-index: 3;
+    backdrop-filter: blur(2rem);
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+
     text-align: center;
     width: 90%;
-    max-width: 320px;
+    max-width: 300px;
 }
 
 .login-form h1 {
-    color: green;
-    margin-bottom: 1rem;
+    font-weight: 900;
+    font-size: 2rem;
+    font-family: Barlow Condensed;
+    color: teal;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.9);
 }
 
 .login-form input {
     display: block;
     width: 100%;
-    padding: 0.7rem;
-    margin: 0.5rem 0;
-    border: 1px solid rgba(0,0,0,0.2);
-    border-radius: 5px;
-    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 1rem 0;    
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(1.5rem); /* smaller blur than parent for layering effect */
+    border-radius: 0.3rem; /* same as .glass */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* soft depth */
     box-sizing: border-box;
+    border: none;
+    color: rgba(30, 43, 43, 0.9);
 }
 
 .login-form button {
     width: 100%;
     padding: 0.75rem;
-    background-color: green;
+    background-color: teal;
+    font-family: Barlow, Inter, Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     color: white;
     border: none;
-    font-weight: bold;
-    border-radius: 5px;
+    font-weight: 900;
+    border-radius: 0.3rem;
     cursor: pointer;
-    font-size: 1rem;
 }
 
 #login-error {
     color: red;
     margin-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
 }
 
 </style>
@@ -292,7 +329,8 @@ footer {
 
 
 <div id="page-content" style="display: none;">
-    
+
+<main>
 
     <nav>
         <div class="nav-content">
@@ -302,7 +340,7 @@ footer {
         </div>
     </nav>
 
-<section class="middle">
+<section class="glass">
 
     <details name="mygroup">
         <summary>The Brand Story</summary>
@@ -1231,6 +1269,24 @@ footer {
                     <li>Ruby</li>
                     <li>Sapphire</li>
                     <li>Emerald</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Zodiac Gemstones</h3>
+                <ul>
+                    <li>Aries : Ruby or Red Coral</li>
+                    <li>Taurus : Emerald</li>
+                    <li>Gemini : Emerald or Agate</li>
+                    <li>Cancer : Pearl or Moonstone</li>
+                    <li>Leo : Ruby</li>
+                    <li>Virgo : Emerald or Peridot</li>
+                    <li>Libra : Diamond or Opal</li>
+                    <li>Scorpio : Red Coral or Topaz</li>
+                    <li>Sagittarius : Yellow Sapphire or Turquoise</li>
+                    <li>Capricorn : Blue Sapphire or Garnet</li>
+                    <li>Aquarius : Amethyst or Blue Sapphire</li>
+                    <li>Pisces : Yellow Sapphire or Aquamarine</li>
                 </ul>
             </div>
     
@@ -2371,7 +2427,7 @@ footer {
     </details>
 
     <details name="mygroup">
-        <summary>Rivaah Golden Advantage</summary>
+        <summary>RGA</summary>
         <div class="content">
     
             <div class="box row3">
@@ -2438,6 +2494,165 @@ footer {
             <div class="box">
                 <h3>Can customers place Customer orders/MTO via RGA?</h3>
                 <p>We should try our best to sell the product available in store or use IBT/Endless Aisle to ensure immediate RGA redemption happens. In cases, where customers insists on placing MTO, then it should be done carefully in the 8th or 9th month itself by collecting 25% advance amount for placing MTO and that 25% amount will be considered as upsell and not be deducted from RGA plan amount. Any MTO order placement on 10th month is strictly not allowed.</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>RGA 2.0</summary>
+        <div class="content">
+    
+            <div class="box row2">
+                <h3>Discount Table</h3>
+                <table style="width:100%">
+                    <tr>
+                        <th>MONTH</th>
+                        <th>PLAIN</th>
+                        <th>STUDDED</th>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td rowspan="2">50% disc on MC upto 5%</td>
+                        <td>8% disc on APV (or) additional 1.5% disc on Store offer</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>9% disc on APV (or) additional 1.5% disc on Store offer</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>50% disc on MC upto 8%</td>
+                        <td>10% disc on APV (or) additional 1.5% disc on Store offer</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>50% disc on MC upto 9%</td>
+                        <td>11% disc on APV (or) additional 1.5% disc on Store offer</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>50% disc on MC upto 10%</td>
+                        <td>12% disc on APV (or) additional 1.5% disc on Store offer</td>
+                    </tr>
+
+
+<!--
+                    <tr>
+                        <th>Digits</th>
+                        <th colspan="2">Representation</th>
+                        <th>Sample</th>
+                    </tr>
+                    <tr>
+                        <td>1st & 2nd</td>
+                        <td colspan="2">Karatage</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>3rd to 6th</td>
+                        <td>Collection Code</td>
+                        <td rowspan="3">Theme Code</td>
+                        <td>G4I2</td>
+                    </tr>
+                    <tr>
+                        <td>7th</td>
+                        <td>Product</td>
+                        <td>F</td>
+                    </tr>
+                    <tr>
+                        <td>8th & 9th</td>
+                        <td>Design Number</td>
+                        <td>AH</td>
+                    </tr>
+                    <tr>
+                        <td>10th</td>
+                        <td colspan="2">Size</td>
+                        <td>R</td>
+                    </tr>
+                    <tr>
+                        <td>11th</td>
+                        <td colspan="2">Locking Mechanism</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>12th</td>
+                        <td colspan="2">Modification</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>13th & 14th</td>
+                        <td colspan="2">Stone Details</td>
+                        <td>02</td>
+                    </tr>-->
+                </table>
+            </div>
+    
+            <div class="box">
+                <h3>Features</h3>
+                <ul>
+                    <li>Launch June 1, 2025</li>
+                    <li>One India, one RGA</li>
+                    <li>Studded benefit - Best ever in the market & Tanishq</li>
+                    <li>No tier system</li>
+                    <li>10 fixed installments</li>
+                    <li>Minimum amount &#8377;2000/-</li>
+                    <li>Accumulated in 22KT grams, as per enrolled store's gold rate</li>
+                    <li>Discounts on MC & accumulated plan value</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Studded Redemptions</h3>
+                <p><b>Accumulated Plan Value (APV) Credit Note:</b><br/>12% discount OR<br/>additional 2.5% discount on store offers<br/>(whichever is higher)</p>
+                <p>Ongoing store offer discount slabs, decided based on selected product value.</p>
+                <p>RGA Credit note = Grammage accumulated X Gold Rate at the time of redemption</p>                
+            </div>
+    
+            <div class="box">
+                <h3>PlainGold & Colourstone Redemption</h3>
+                <p>50% MC discount with a cap at 10%</p>
+            </div>
+    
+            <div class="box">
+                <h3>Other benefits</h3>
+                <ul>
+                    <li>Accumulate grams of 22KT gold</li>
+                    <li>Upsell portion can be clubbed with available store offers</li>
+                    <li>Discount slab for studded upsell grams is based on the selected product value</li>
+                    <li>RGA can be clubbed with GEP on upsell value</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Other Points</h3>
+                <ul>
+                    <li>Customer needs to purchase at least minimum grammage accumulated</li>
+                    <li>If purchase net weight is less than the accumulated grammage, system will not allow redemption</li>
+                    <li>Customer orders allowed for redemption, as long as billing is closed within RGA redemption time</li>
+                    <li>RGA and GHS cannot be clubbed</li>
+                    <li>No cash refunds under any circumstances</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Redemption Jewelleries</h3>
+                <table width="100%">
+                    <tr>
+                        <th>Allowed</th>
+                        <th>Not Allowed</th>
+                    </tr>
+                    <tr>
+                        <td>Plain Gold<br/>Mia Plain Gold<br/>Colourstone<br/>PJWS<br/>Kundan Polki<br/>Glass Kundan<br/>Gold Studded<br/>Hi-Val Studded<br/>Mia Studded<br/>Solitaire<br/>Bi-metal Studded</td>
+                        <td>Gold coins<br/>Silver products<br/>Platinum plain<br/>Bi-metal plain</td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="box">
+                <h3>Refund process</h3>
+                <p>RGA has reached 331 days</p>
+                <p>Full weight, in the form of coins, will be delivered to the customer's address</p>
+                <p>5% deducted on gold coin dispatches (3% GST + 2% MC based on day's gold rate, subject to changes as per govt. regulations)</p>
             </div>
     
         </div>
@@ -3086,24 +3301,187 @@ footer {
     </details>
 
     <details name="mygroup">
-        <summary>Let's grow together!</summary>
+        <summary>Elan</summary>
         <div class="content">
     
             <div class="box">
-                <p>I would truly appreciate your help in gathering more information or offering any valuable suggestions. Every little bit makes a difference!</p>
-                <p>Feel free to reach out to me at <b>btqtbh@titan.co.in</b> with the subject line as "Tanishq Puraan Suggestions".</p>
-                <p><b>Let's Collaborate!</b></p>
+                <h3>Theme Code</h3>
+                <p>O5SW</p>
+            </div>
+    
+            <div class="box">
+                <h3>Meaning</h3>
+                <p>Elan means style, flair and confidence. Its the way someone carries themselves with grace and energy, especially in fashion.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Purpose</h3>
+                <p>Tanishq's bold new collection crafted for special occasions.</p>
+                <p>For those who want to look their best without compromise.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Introduction to the Collection</h3>
+                <ul>
+                    <li>Feachuring rich, 3D sculpted designs with intricate floral jaali work</li>
+                    <li>Adding volume and elegance without making athe piece heavy</li>
+                    <li>Perfect for celebrations and important moments</li>
+                    <li>Grand, beautifully detailed jewellery at a smart price</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Collection USPs!</h3>
+                <ul>
+                    <li>Gold, as a very fine intricate jaali : Presented with a matte finish in some pieces, to bring focus on the diamonds</li>
+                    <li>3D modulation : Diamonds appear to float on the surface of the gold jaali</li>
+                    <li>Intricate setting of diamonds : Diamonds et closer for continuous visiblity and sparkle</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>The Keywords!</h3>
+                <ul>
+                    <li>Differentiated designs silhouttes</li>
+                    <li>3D forms</li>
+                    <li>Intricately crafted motifs on a delicate jaali base</li>
+                    <li>Fine diamonds looking as if floating from a distance</li>
+                    <li>Layers</li>
+                </ul>
+            </div>
+    
+            <div class="box row3">
+                <h3>Key Techniques</h3>
+                <p><b>3D Forms</b></p>
+                <ul>
+                    <li>Differentiated silhouttes with 3D forms</li>
+                    <li>Fine diamonds look as if they are floating</li>
+                </ul>
+                <p><b>Two Layered Structures</b></p>
+                <ul>
+                    <li>Detailed & directly crafted jaali creating layered look</li>
+                    <li>Jalli ensures strength with a fine look, creating a contrast</li>
+                    <li>Bottom layer - Matte gold jaali</li>
+                    <li>Top layer - Pave set diamonds</li>
+                </ul>
+                <p><b>Matte Gold jaali layer</b></p>
+                <ul>
+                    <li>Jaali made with matte finish to create a contrast with diamonds</li>
+                    <li>Graceful lace-like elegance of the jaali ensures flexibility of the design</li>
+                </ul>
+                <p><b>Pave Set Diamonds in different shapes</b></p>
+                <ul>
+                    <li>Diamonds are set closely in pave fancy shapes for better visibility & enhancing design's brilliance</li>
+                </ul>
+                <p><b>Fine Diamonds that looks as if floating</b></p>
+                <ul>
+                    <li>Diamonds are set atop an intricate jaali</li>
+                    <li>Creating a striking 3D contrast</li>
+                    <li>Giving the illusion of floating</li>
+                </ul>
+                <p><b>Flower & Lace forms</b></p>
+                <ul>
+                    <li>Blooming flower motifs symbolising beauty and purity</li>
+                    <li>Delicate forms showcasing intricate patterns</li>
+                </ul>
+            </div>
+    
+            <div class="box row3">
+                <h3>Customer Profile & Need</h3>
+                <ul>
+                    <li>New walk-ins</li>
+                    <li>Purple customers</li>
+                    <li>Repeat customers</li>
+                </ul>
+                <p><b>Customer Persona - Who is She?</b></p>
+                <ul>
+                    <li>Newly rich - just arrived in life</li>
+                    <li>Looking for flaunt value</li>
+                    <li>Wants to be fashionable, stylized</li>
+                    <li>Loves to follow the latest trends - to be seen as part of the circle</li>
+                    <li>Wants to be in the spotlight!</li>
+                    <li>Diamonds reflect success & status</li>
+                </ul>
+                <p><b>Her need for Diamonds:</b> Diamonds bring her recognition. Loves diamonds for the way it looks and sparkles on her.</p>
+                <p><b>She wants:</b></p>
+                <ul>
+                    <li>Variety, Value</li>
+                    <li>Noticeable pieces</li>
+                    <li>Versatility</li>
+                    <li>To announce her arrival</li>
+                    <li>Pieces that make her the trendsetter!</li>
+                </ul>
+                <p>She loves to showcase and celebrate her life, her world.</p>
+            </div>
+    
+            <div class="box">
+                <h3>The Campaign Message</h3>
+                <p>Made for the woman who loves to indulge & flaunt her jewellery.</p>
+                <p>Loves Tanishq as a brand, and aspires to own Tanishq's diamond jewellery.</p>
+                <p>She seeks differentiated designs and wants value for money!</p>
+            </div>
+    
+            <div class="box">
+                <h3>Merchandise Mix</h3>
+                <p>Presenting 50 products in Set1, Set2 and bangles.</p>
+                <p><b>Neckwear Price Range:</b></p>
+                <ul>
+                    <li>1 to 3 lacs</li>
+                    <li>3 to 5 lacs</li>
+                    <li>5 to 9 lacs</li>
+                </ul>
+                <p><b>Pendant Sets:</b></p>
+                <ul>
+                    <li>1 to 2.5 lacs</li>
+                </ul>
+                <p><b>Bangles:</b></p>
+                <ul>
+                    <li>Under 4 lacs</li>
+                </ul>
+                <p><b>Statement Necklace Sets : </b>8.5 lacs and 7 lacs</p>
+            </div>
+    
+            <div class="box">
+                <h3>Materials used</h3>
+                <p><b>Gold:</b> 18KT, yellow gold</p>
+                <p><b>Diamond clarity and colour:</b></p>
+                <ul>
+                    <li>1-5 lacs: I2 GH</li>
+                    <li>Above 5 lacs: SI2 GH</li>
+                </ul>
             </div>
     
         </div>
     </details>
 
+    <details name="mygroup">
+        <summary>Let's grow together!</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>The Vedas mention: 'Knowledge grows when shared.'</h3>
+                <p>Your insights, ideas, or even a small piece of information could make a big difference — and I'd be truly grateful for your contribution. Reach out anytime at btqtbh@titan.co.in with the subject line: "Tanishq Puraan Suggestions".</p>
+                <p>Let's come together to write the 'Tanishq Puraan' by bringing together all the knowledge we hold.</p>
+            </div>
+    
+        </div>
+    </details>
 
 </section>
+
+</main>
 
 <footer>
     &copy; 2025 Curated by: Swaroop Chakraborty, TBH - Tanishq Malviya Nagar, Bhopal
 </footer>
+
+<div class="circle1"></div>
+<div class="circle2"></div>
+<div class="circle3"></div>
+<div class="circle4"></div>
+<div class="circle5"></div>
+<div class="circle6"></div>
+<div class="circle7"></div>
 
 
 </div> <!-- end of page-content -->
@@ -3121,10 +3499,15 @@ function login() {
         errorMsg.textContent = 'Invalid credentials. Please try again.';
     }
 }
+
+// Trigger login when Enter is pressed in the password field
+document.getElementById('password').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        login();
+    }
+});
 </script>
 
 
 </body>
 </html>
-
-
